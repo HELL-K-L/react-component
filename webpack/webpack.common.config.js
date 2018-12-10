@@ -2,10 +2,13 @@ const path = require("path");
 const HtmlWebPackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
-console.log("kylin::::" + __dirname);
 module.exports = {
   entry: {
-    app: ["react-hot-loader/patch", path.join(__dirname, "../src/index.js")],
+    app: [
+      "@babel/polyfill",
+      "react-hot-loader/patch",
+      path.join(__dirname, "../src/index.js")
+    ],
     vendor: ["react", "react-router-dom", "redux", "react-dom", "react-redux"]
   },
   output: {

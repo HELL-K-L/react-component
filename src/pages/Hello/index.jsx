@@ -1,4 +1,6 @@
 import React, { PureComponent } from "react";
+import { Link } from "react-router-dom";
+
 import "./index.css";
 
 export default class Home extends PureComponent {
@@ -19,6 +21,20 @@ export default class Home extends PureComponent {
   render() {
     return (
       <div className="kylin">
+        <ul>
+          <li>
+            <Link to="/">首页</Link>
+          </li>
+          <li>
+            <Link to="/page">Page</Link>
+          </li>
+          <li>
+            <Link to="/counter">Counter</Link>
+          </li>
+          <li>
+            <Link to="/userinfo">UserInfo</Link>
+          </li>
+        </ul>
         this is home~
         <br />
         当前计数：{this.state.count}

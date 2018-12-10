@@ -5,7 +5,7 @@ const CleanWebpackPlugin = require("clean-webpack-plugin");
 const commonConfig = require("./webpack.common.config.js");
 
 commonConfig.entry = {
-  app: [path.join(__dirname, "../src/index.js")],
+  app: ["@babel/polyfill", path.join(__dirname, "../src/index.js")],
   vendor: ["react", "react-router-dom", "redux", "react-dom", "react-redux"]
 };
 
