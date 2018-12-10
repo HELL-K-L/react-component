@@ -1,4 +1,5 @@
 import React, { PureComponent } from "react";
+import "./index.css";
 
 export default class Home extends PureComponent {
   constructor(props) {
@@ -17,7 +18,7 @@ export default class Home extends PureComponent {
 
   render() {
     return (
-      <div>
+      <div className="kylin">
         this is home~
         <br />
         当前计数：{this.state.count}

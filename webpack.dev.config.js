@@ -25,13 +25,29 @@ module.exports = {
             loader: "style-loader"
           },
           {
-            loader: "css-loader",
+            loader: "css-loader"
+          }
+        ]
+      },
+      {
+        test: /\.(png|jpeg|jpg|gif)$/,
+        use: [
+          {
+            loader: "url-loader",
             options: {
-              modules: true,
-              importLoaders: 1,
-              localIdentName: "[name]_[local]_[hash:base64]",
-              sourceMap: true,
-              minimize: true
+              limit: 8192
+            }
+          }
+        ]
+      },
+      {
+        test: /\.(eot|svg|ttf|woff|woff2)(.+)?$/,
+        use: [
+          {
+            loader: "file-loader",
+            options: {
+              // name:'./asset/fonts/[name].[ext]',
+              //name: path.join(__dirname, '../asset/fonts/[name].[ext]'),
             }
           }
         ]
@@ -50,7 +66,10 @@ module.exports = {
     alias: {
       pages: path.join(__dirname, "src/pages"),
       component: path.join(__dirname, "src/component"),
-      router: path.join(__dirname, "src/router")
+      router: path.join(__dirname, "src/router"),
+      actions: path.join(__dirname, "src/redux/actions"),
+      reducers: path.join(__dirname, "src/redux/reducers"),
+      images: path.join(__dirname, "src/images")
     }
   },
   devServer: {
