@@ -4,7 +4,10 @@ const HtmlWebPackPlugin = require("html-webpack-plugin");
 
 module.exports = {
   /*入口*/
-  entry: ["react-hot-loader/patch", path.join(__dirname, "src/index.js")],
+  entry: {
+    app: ["react-hot-loader/patch", path.join(__dirname, "src/index.js")],
+    vendor: ["react", "react-router-dom", "redux", "react-dom", "react-redux"]
+  },
 
   /*输出到dist文件夹，输出文件名字为bundle.js*/
   output: {
@@ -62,6 +65,20 @@ module.exports = {
     }),
     new webpack.HotModuleReplacementPlugin()
   ],
+  optimization: {
+    runtimeChunk: {
+      name: "manifest"
+    },
+    splitChunks: {
+      cacheGroups: {
+        commons: {
+          test: /[\\/]node_modules[\\/]/,
+          name: "vendor",
+          chunks: "all"
+        }
+      }
+    }
+  },
   resolve: {
     extensions: [".js", ".jsx"],
     alias: {

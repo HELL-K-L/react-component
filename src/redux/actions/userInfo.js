@@ -25,7 +25,7 @@ export function getUserInfo() {
   return function(dispatch) {
     dispatch(getUserInfoRequest());
 
-    return fetch("http://localhost:8081/dist/api/user.json")
+    return fetch("http://localhost:8081/api/user.json")
       .then(response => {
         return response.json();
       })

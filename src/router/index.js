@@ -4,8 +4,8 @@ import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
 
 import Bundle from "./Bundle";
 
-import Hello from "bundle-loader?lazy&name=home!pages/Hello";
-import Page from "bundle-loader?lazy&name=page1!pages/Page";
+import Hello from "bundle-loader?lazy&name=hello!pages/Hello";
+import Page from "bundle-loader?lazy&name=page!pages/Page";
 import Counter from "bundle-loader?lazy&name=counter!pages/Counter";
 import UserInfo from "bundle-loader?lazy&name=userInfo!pages/UserInfo";
 
