@@ -1,17 +1,15 @@
 const path = require("path");
-const webpack = require("webpack");
 const HtmlWebPackPlugin = require("html-webpack-plugin");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
+console.log("kylin::::" + __dirname);
 module.exports = {
-  /*入口*/
   entry: {
-    app: ["react-hot-loader/patch", path.join(__dirname, "src/index.js")],
+    app: ["react-hot-loader/patch", path.join(__dirname, "../src/index.js")],
     vendor: ["react", "react-router-dom", "redux", "react-dom", "react-redux"]
   },
-
-  /*输出到dist文件夹，输出文件名字为bundle.js*/
   output: {
-    path: path.join(__dirname, "./dist"),
+    path: path.join(__dirname, "../dist"),
     filename: "[name].[hash].js",
     chunkFilename: "[name].[chunkhash].js"
   },
@@ -20,17 +18,13 @@ module.exports = {
       {
         test: /\.js|jsx$/,
         use: ["babel-loader?cacheDirectory=true"],
-        include: path.join(__dirname, "src")
+        include: path.join(__dirname, "../src")
       },
       {
         test: /\.css$/,
         use: [
-          {
-            loader: "style-loader"
-          },
-          {
-            loader: "css-loader"
-          }
+          MiniCssExtractPlugin.loader, // replace ExtractTextPlugin.extract({..})
+          "css-loader"
         ]
       },
       {
@@ -60,10 +54,13 @@ module.exports = {
   },
   plugins: [
     new HtmlWebPackPlugin({
-      template: "./src/index.html",
+      template: path.join(__dirname, "../src/index.html"),
       filename: "./index.html"
     }),
-    new webpack.HotModuleReplacementPlugin()
+    new MiniCssExtractPlugin({
+      filename: "[name].css",
+      chunkFilename: "[name].[chunkhash:8].css"
+    })
   ],
   optimization: {
     runtimeChunk: {
@@ -82,16 +79,12 @@ module.exports = {
   resolve: {
     extensions: [".js", ".jsx"],
     alias: {
-      pages: path.join(__dirname, "src/pages"),
-      component: path.join(__dirname, "src/component"),
-      router: path.join(__dirname, "src/router"),
-      actions: path.join(__dirname, "src/redux/actions"),
-      reducers: path.join(__dirname, "src/redux/reducers"),
-      images: path.join(__dirname, "src/images")
+      pages: path.join(__dirname, "../src/pages"),
+      component: path.join(__dirname, "../src/component"),
+      router: path.join(__dirname, "../src/router"),
+      actions: path.join(__dirname, "../src/redux/actions"),
+      reducers: path.join(__dirname, "../src/redux/reducers"),
+      images: path.join(__dirname, "../src/images")
     }
-  },
-  devServer: {
-    historyApiFallback: true,
-    hot: true
   }
 };
