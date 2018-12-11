@@ -1,1 +1,3 @@
 # react-component
+
+npm install
