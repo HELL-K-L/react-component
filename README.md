@@ -12,3 +12,7 @@
 1. `npm run build`
 
 2. 拷贝dist文件夹至服务器即可
+
+[相关资料](https://github.com/brickspert/blog/issues/1 "相关资料")
+
+
