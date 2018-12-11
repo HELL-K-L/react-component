@@ -3,6 +3,7 @@ import ReactDom from "react-dom";
 import { AppContainer } from "react-hot-loader";
 import { Provider } from "react-redux";
 import store from "./redux/store";
+import "../mock/mock";
 
 import getRouter from "router";
 
@@ -16,7 +17,6 @@ if (module.hot) {
     renderWithHotReload(getRouter());
   });
 }
-console.log(store);
 function renderWithHotReload(RootElement) {
   ReactDom.render(
     <AppContainer>

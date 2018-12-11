@@ -5,7 +5,10 @@ commonConfig.plugins.push(new webpack.HotModuleReplacementPlugin());
 
 commonConfig.devServer = {
   historyApiFallback: true,
-  hot: true
+  hot: true,
+  proxy: {
+    "/api/*": "http://localhost:8090/$1"
+  }
 };
 
 commonConfig.devtool = "source-map";

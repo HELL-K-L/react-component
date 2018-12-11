@@ -1,9 +1,10 @@
 import React, { PureComponent } from "react";
+import { hot } from "react-hot-loader";
 import { Link } from "react-router-dom";
 
 import "./index.css";
 
-export default class Home extends PureComponent {
+class Home extends PureComponent {
   constructor(props) {
     super(props);
     this.state = {
@@ -23,7 +24,7 @@ export default class Home extends PureComponent {
       <div className="kylin">
         <ul>
           <li>
-            <Link to="/">首页</Link>
+            <Link to="/">首页4</Link>
           </li>
           <li>
             <Link to="/page">Page</Link>
@@ -44,3 +45,4 @@ export default class Home extends PureComponent {
     );
   }
 }
+export default hot(module)(Home);
