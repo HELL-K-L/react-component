@@ -5,8 +5,8 @@ var Random = Mock.Random;
 module.exports = function() {
   var data = {};
   data.user = {
-    name: Random.cname(),
-    intro: Random.word(20)
+    name: Random.cname(3),
+    intro: Random.word(18)
   };
   return data;
 };
