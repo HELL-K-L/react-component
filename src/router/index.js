@@ -8,6 +8,8 @@ import Hello from "bundle-loader?lazy&name=hello!pages/Hello";
 import Page from "bundle-loader?lazy&name=page!pages/Page";
 import Counter from "bundle-loader?lazy&name=counter!pages/Counter";
 import UserInfo from "bundle-loader?lazy&name=userInfo!pages/UserInfo";
+import Demo from "bundle-loader?lazy&name=demo!pages/Demo";
+
 
 const Loading = function() {
   return <div>Loading...</div>;
@@ -35,12 +37,16 @@ const getRouter = () => (
         <li>
           <Link to="/userinfo">UserInfo</Link>
         </li>
+        <li>
+          <Link to="/demo">Demo</Link>
+        </li>
       </ul>
       <Switch>
         <Route exact path="/" component={createComponent(Hello)} />
         <Route path="/page" component={createComponent(Page)} />
         <Route path="/counter" component={createComponent(Counter)} />
         <Route path="/userinfo" component={createComponent(UserInfo)} />
+        <Route path="/demo" component={createComponent(Demo)} />
       </Switch>
     </div>
   </Router>

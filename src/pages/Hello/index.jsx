@@ -22,21 +22,7 @@ class Home extends PureComponent {
   render() {
     return (
       <div className="kylin">
-        <ul>
-          <li>
-            <Link to="/">首页4</Link>
-          </li>
-          <li>
-            <Link to="/page">Page</Link>
-          </li>
-          <li>
-            <Link to="/counter">Counter</Link>
-          </li>
-          <li>
-            <Link to="/userinfo">UserInfo</Link>
-          </li>
-        </ul>
-        this is home~
+        this is home 12345~
         <br />
         当前计数：{this.state.count}
         <br />
